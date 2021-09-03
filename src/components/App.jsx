@@ -1,13 +1,12 @@
 import React, { useState } from "react";
 import * as allApis from "./api";
+import Home from "./Home.jsx";
 import {BrowserRouter as Router,Route,Switch} from "react-router-dom";
 
 function App(){
-    const [count,setCount] = useState();
-    {allApis.callAPI1(setCount)}
     return (
         <div>
-            <h1>{count}</h1>
+            <Home/>
         </div>
     );
 }

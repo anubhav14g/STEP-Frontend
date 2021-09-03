@@ -1,0 +1,21 @@
+body {
+    background-color: #222;
+    overflow-x: hidden
+}
+
+.home-info-text {
+    margin-top: 4rem;
+    margin-left: 5rem;
+    font-size: 2rem;
+    color: #FFFFFF
+}
+
+.blink_me {
+    animation: blinker 1s linear infinite;
+}
+
+@keyframes blinker {
+    50% {
+      opacity: 0;
+    }
+}
