@@ -50,7 +50,7 @@ export default function HomeInfo() {
         </Grid>
         <Grid item xs={12} sm={6}>
           <h1 style={{fontSize: "100px", marginBottom: "0px",marginLeft:20}}>{date.toLocaleTimeString()}</h1>
-          <Link to="/singuplogin" style={{ textDecoration: 'none' }}><Button variant="contained" color="secondary" style={{marginTop:"100px",marginLeft:100,width: "170px",
+          <Link to="/signuplogin" style={{ textDecoration: 'none' }}><Button variant="contained" color="secondary" style={{marginTop:"100px",marginLeft:100,width: "170px",
   height: "50px",color: '#FFFFFF',fontSize:'19px'}}><b>Signup/Login</b></Button></Link>
           <Button onClick={handleClickOpen} variant="contained" color="secondary" style={{marginTop:"100px",marginLeft:50,width: "170px",
   height: "50px",color: '#FFFFFF',fontSize:'19px'}}><b>Queryflow</b></Button>

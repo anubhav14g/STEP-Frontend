@@ -15,6 +15,7 @@ import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import { useTheme } from '@material-ui/core/styles';
+import {BrowserRouter as Router,Route,Redirect,Switch} from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -53,6 +54,8 @@ export default function Login() {
 
   const [isOpened, setIsOpened] = useState(false);
 
+  const [ifError, setErrorMessage] = useState(true);
+
   const [state,setState] = useState({
     email : '',
     pin : ''
@@ -70,7 +73,7 @@ export default function Login() {
   const handleSubmit = (event) => {
     event.preventDefault();
     console.log(state);
-    {allApis.callAPI3(state,setMessage,setIsOpened)}
+    {allApis.callAPI3(state,setMessage,setIsOpened,setErrorMessage)}
   };
 
   return (
@@ -78,7 +81,8 @@ export default function Login() {
       <CssBaseline />
       <div className={classes.paper}>
       {isOpened && <Button variant="contained" color="secondary" style={{marginTop:"0px",marginLeft:10,width: "570px",
-  height: "100px",color: '#FFFFFF',fontSize:'19px'}}><b>{message}</b></Button>}
+  height: "100px",color: '#FFFFFF',fontSize:'19px'}}><b>{message}</b></Button> }
+      {!ifError && <Redirect to="/profile"/>}
         <Avatar className={classes.avatar}>
           <LockOutlinedIcon />
         </Avatar>
