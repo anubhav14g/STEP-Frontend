@@ -35,7 +35,7 @@ export default function Navbar() {
       <AppBar position="static">
         <Toolbar className={classes.toolbar}>
           <Typography className={classes.title} variant="h3" noWrap>
-            <b>{heading}</b>
+            <b>Welcome to the Student Teacher Exam Portal (STEP)</b>
           </Typography>
         </Toolbar>
       </AppBar>
