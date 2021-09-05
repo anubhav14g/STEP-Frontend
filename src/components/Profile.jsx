@@ -6,7 +6,7 @@ import {Link} from "react-router-dom";
 export default function Header(){
     
     function logout(){
-        localStorage.clear();
+        localStorage.removeItem('step-user-auth-token');;
     }
 
     return(

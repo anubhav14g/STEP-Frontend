@@ -10,13 +10,13 @@ export function callAPI2(bodyObj,setMessageFunction,setIsOpenedFunction){
     axios.post('https://anubhavg-step.herokuapp.com/api/auth/register/user',bodyObj).then(res=>{   
         setMessageFunction(res.data.message)
         setIsOpenedFunction(true)
-        localStorage.clear();
+        localStorage.removeItem('step-user-auth-token');
         // console.log(res.data.message);
     }).catch(err=>{
         // console.log(err.response.data);
         setMessageFunction(err.response.data.message)
         setIsOpenedFunction(true)
-        localStorage.clear();
+        localStorage.removeItem('step-user-auth-token');
     });
 }
 
@@ -27,13 +27,13 @@ export function callAPI3(bodyObj,setMessageFunction,setIsOpenedFunction,setError
         setErrorMessageFunction(false)
         // console.log(res.data.message);
         // console.log(res.data['auth-token']);
-        localStorage.clear();
+        localStorage.removeItem('step-user-auth-token');
         localStorage.setItem('step-user-auth-token', res.data['auth-token'])
     }).catch(err=>{
         // console.log(err.response.data);
         setIsOpenedFunction(true)
         setMessageFunction(err.response.data.message)
         setErrorMessageFunction(true)
-        localStorage.clear();
+        localStorage.removeItem('step-user-auth-token');
     });
 }
