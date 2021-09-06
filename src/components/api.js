@@ -37,3 +37,26 @@ export function callAPI3(bodyObj,setMessageFunction,setIsOpenedFunction,setError
         localStorage.removeItem('step-user-auth-token');
     });
 }
+
+export function callAPI4(setDataFunction){
+    axios.get('https://anubhavg-step.herokuapp.com/api/test/view/all/tests',{ headers: {"auth-token" : `${localStorage.getItem('step-user-auth-token')}`}}).then(res=>{   
+        // console.log(res.data['all_tests'])    
+        setDataFunction(res.data['all_tests'])
+    }).catch(err=>{
+        console.log(err);
+    });
+}
+
+
+export function callAPI5(bodyObj,setMessageFunction,setIsOpenedFunction,setErrorMessageFunction){
+    axios.post('https://anubhavg-step.herokuapp.com/api/test/create',bodyObj,{ headers: {"auth-token" : `${localStorage.getItem('step-user-auth-token')}`}}).then(res=>{   
+        setMessageFunction(res.data.message)
+        setIsOpenedFunction(true)
+        setErrorMessageFunction(false)
+    }).catch(err=>{
+        // console.log(err.response.data);
+        setMessageFunction(err.response.data.message)
+        setIsOpenedFunction(true)
+        setErrorMessageFunction(true)
+    });
+}
