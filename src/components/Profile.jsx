@@ -17,6 +17,8 @@ export default function Profile(){
   height: "50px",color: '#FFFFFF',fontSize:'19px'}}><b>Log Out</b></Button></Link>
         <Link to="/createtest" style={{ textDecoration: 'none'}}><Button variant="contained" color="secondary" style={{marginTop:"10px",marginLeft:10,width: "170px",
         height: "50px",color: '#FFFFFF',fontSize:'19px'}}><b>Create Test</b></Button></Link>
+        <Link to="/taketest" style={{ textDecoration: 'none'}}><Button variant="contained" color="secondary" style={{marginTop:"10px",marginLeft:10,width: "170px",
+        height: "50px",color: '#FFFFFF',fontSize:'19px'}}><b>Take Test</b></Button></Link>
         <ProfileTable/>
     </div>
     );

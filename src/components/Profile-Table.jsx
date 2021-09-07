@@ -46,14 +46,15 @@ export default function ProfileTable() {
       <Table className={classes.table} aria-label="simple table">
         <TableHead>
           <TableRow>
-            <TableCell><h2>Name</h2></TableCell>
-            <TableCell align="right"><h2>Type</h2></TableCell>
-            <TableCell align="right"><h2>Total Questions</h2></TableCell>
-            <TableCell align="right"><h2>Start Time</h2></TableCell>
-            <TableCell align="right"><h2>End Time</h2></TableCell>
-            <TableCell align="right"><h2>Duration</h2></TableCell>
-            <TableCell align="right"><h2>Max Marks</h2></TableCell>
-            <TableCell align="right"><h2>Created At</h2></TableCell>
+            <TableCell align="center"><h2>Test Id</h2></TableCell>
+            <TableCell align="center"><h2>Name</h2></TableCell>
+            <TableCell align="center"><h2>Type</h2></TableCell>
+            <TableCell align="center"><h2>Total Questions</h2></TableCell>
+            <TableCell align="center"><h2>Start Time</h2></TableCell>
+            <TableCell align="center"><h2>End Time</h2></TableCell>
+            <TableCell align="center"><h2>Duration</h2></TableCell>
+            <TableCell align="center"><h2>Max Marks</h2></TableCell>
+            <TableCell align="center"><h2>Created At</h2></TableCell>
             <TableCell></TableCell>
             <TableCell></TableCell>
             <TableCell></TableCell>
@@ -62,19 +63,20 @@ export default function ProfileTable() {
         <TableBody>
           {rowsData && rowsData.map((row) => (
             <TableRow>
-              <TableCell align="right">{row.name}</TableCell>
-              <TableCell align="right">{row.type}</TableCell>
-              <TableCell align="right">{row.total_questions}</TableCell>
-              <TableCell align="right">{row.start_time}</TableCell>
-              <TableCell align="right">{row.end_time}</TableCell>
-              <TableCell align="right">{row.duration}</TableCell>
-              <TableCell align="right">{row.max_marks}</TableCell>
-              <TableCell align="right">{row.createdAt}</TableCell>
-              <TableCell align="right"><Link to={`/viewquestions/${row._id}`} style={{ textDecoration: 'none'}}><Button variant="contained" color="secondary" style={{marginTop:"10px",marginLeft:10,width: "370px",
+              <TableCell align="center">{row._id}</TableCell>
+              <TableCell align="center">{row.name}</TableCell>
+              <TableCell align="center">{row.type}</TableCell>
+              <TableCell align="center">{row.total_questions}</TableCell>
+              <TableCell align="center">{row.start_time}</TableCell>
+              <TableCell align="center">{row.end_time}</TableCell>
+              <TableCell align="center">{row.duration}</TableCell>
+              <TableCell align="center">{row.max_marks}</TableCell>
+              <TableCell align="center">{row.createdAt}</TableCell>
+              <TableCell align="center"><Link to={`/viewquestions/${row._id}`} style={{ textDecoration: 'none'}}><Button variant="contained" color="secondary" style={{marginTop:"10px",marginLeft:10,width: "370px",
             height: "40px",color: '#FFFFFF',fontSize:'19px'}}><b>View All Questions</b></Button></Link></TableCell>
-              <TableCell align="right"><Button variant="contained" color="secondary" style={{marginTop:"10px",marginLeft:10,width: "370px",
-            height: "40px",color: '#FFFFFF',fontSize:'19px'}}><b>Add Question</b></Button></TableCell>
-              <TableCell align="right"><Link to={`/viewsubmissions/${row._id}`} style={{ textDecoration: 'none'}}><Button variant="contained" color="secondary" style={{marginTop:"10px",marginLeft:10,width: "370px",
+              <TableCell align="center"><Link to={`/addquestion/${row._id}`} style={{ textDecoration: 'none'}}><Button variant="contained" color="secondary" style={{marginTop:"10px",marginLeft:10,width: "370px",
+            height: "40px",color: '#FFFFFF',fontSize:'19px'}}><b>Add Question</b></Button></Link></TableCell>
+              <TableCell align="center"><Link to={`/viewsubmissions/${row._id}`} style={{ textDecoration: 'none'}}><Button variant="contained" color="secondary" style={{marginTop:"10px",marginLeft:10,width: "370px",
             height: "40px",color: '#FFFFFF',fontSize:'19px'}}><b>View All Submissions</b></Button></Link></TableCell>
             </TableRow>
           ))}

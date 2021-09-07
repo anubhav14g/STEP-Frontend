@@ -41,25 +41,27 @@ export default function ViewQuestions(props){
         <Table className={classes.table} aria-label="simple table">
             <TableHead>
             <TableRow>
-                <TableCell><h2>Question</h2></TableCell>
-                <TableCell align="right"><h2>option1</h2></TableCell>
-                <TableCell align="right"><h2>option2</h2></TableCell>
-                <TableCell align="right"><h2>option3</h2></TableCell>
-                <TableCell align="right"><h2>option4</h2></TableCell>
-                <TableCell align="right"><h2>solution</h2></TableCell>
-                <TableCell align="right"><h2>Created At</h2></TableCell>
+                <TableCell align="center"><h2>Question Id</h2></TableCell>
+                <TableCell align="center"><h2>Question</h2></TableCell>
+                <TableCell align="center"><h2>option1</h2></TableCell>
+                <TableCell align="center"><h2>option2</h2></TableCell>
+                <TableCell align="center"><h2>option3</h2></TableCell>
+                <TableCell align="center"><h2>option4</h2></TableCell>
+                <TableCell align="center"><h2>solution</h2></TableCell>
+                <TableCell align="center"><h2>Created At</h2></TableCell>
             </TableRow>
             </TableHead>
             <TableBody>
             {rowsData && rowsData.map((row) => (
                 <TableRow>
-                <TableCell align="right">{row.question}</TableCell>
-                <TableCell align="right">{row.option1}</TableCell>
-                <TableCell align="right">{row.option2}</TableCell>
-                <TableCell align="right">{row.option3}</TableCell>
-                <TableCell align="right">{row.option4}</TableCell>
-                <TableCell align="right">{row.solution}</TableCell>
-                <TableCell align="right">{row.createdAt}</TableCell>
+                <TableCell align="center">{row._id}</TableCell>
+                <TableCell align="center">{row.question}</TableCell>
+                <TableCell align="center">{row.option1}</TableCell>
+                <TableCell align="center">{row.option2}</TableCell>
+                <TableCell align="center">{row.option3}</TableCell>
+                <TableCell align="center">{row.option4}</TableCell>
+                <TableCell align="center">{row.solution}</TableCell>
+                <TableCell align="center">{row.createdAt}</TableCell>
                 </TableRow>
             ))}
             </TableBody>
