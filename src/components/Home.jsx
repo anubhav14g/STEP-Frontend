@@ -7,7 +7,7 @@ export default function Header(){
 
     return(
     <div>
-        {localStorage.getItem('step-user-auth-token') && <Redirect to="/profile"/>}
+        {/* {localStorage.getItem('step-user-auth-token') && <Redirect to="/profile"/>} */}
         <Navbar/>
         <HomeInfo/>
     </div>
