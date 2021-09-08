@@ -17,6 +17,7 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import { useTheme } from '@material-ui/core/styles';
 import {BrowserRouter as Router,Route,Redirect,Switch} from "react-router-dom";
+import MenuItem from '@material-ui/core/MenuItem';
 
 const useStyles = makeStyles((theme) => ({
     paper: {
@@ -118,7 +119,11 @@ export default function CreateTest(){
             value={state.type}
             onChange={handleInputChange}
             autoFocus
-          />
+            select
+          >
+          <MenuItem value="Mcq">Mcq</MenuItem>
+          <MenuItem value="Theory">Theory</MenuItem>
+          </TextField>
           <TextField
             variant="outlined"
             margin="normal"

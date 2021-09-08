@@ -15,6 +15,7 @@ import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import { useTheme } from '@material-ui/core/styles';
+import MenuItem from '@material-ui/core/MenuItem';
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -146,7 +147,11 @@ export default function SignUp() {
             value={state.type}
             onChange={handleInputChange}
             autoFocus
-          />
+            select
+          >
+          <MenuItem value="Teacher">Teacher</MenuItem>
+          <MenuItem value="Student">Student</MenuItem>
+          </TextField>
           <Button
             type="submit"
             fullWidth
