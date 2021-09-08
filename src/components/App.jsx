@@ -7,6 +7,7 @@ import TakeTest from "./Take-Test.jsx";
 import ViewQuestions from "./View-Questions.jsx";
 import ViewSubmissions from "./View-Submissions.jsx"
 import AddQuestion from "./Add-Question.jsx"
+import ViewAllQueries from "./View-All-Queries.jsx"
 import {BrowserRouter as Router,Route,Switch} from "react-router-dom";
 
 function App(){
@@ -22,6 +23,7 @@ function App(){
                     <Route path="/viewquestions/:test_id" component={ViewQuestions}/>
                     <Route path="/viewsubmissions/:test_id" component={ViewSubmissions}/>
                     <Route path="/addquestion/:test_id" component={AddQuestion}/>
+                    <Route path="/viewallqueries" component={ViewAllQueries}/>
                 </Switch>
             </div>
         </Router>

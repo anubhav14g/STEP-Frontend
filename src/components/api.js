@@ -60,3 +60,12 @@ export function callAPI5(bodyObj,setMessageFunction,setIsOpenedFunction,setError
         setErrorMessageFunction(true)
     });
 }
+
+export function callAPI6(setDataFunction){
+    axios.get('https://anubhavg-step.herokuapp.com/api/query/view/all/queries',{ headers: {"auth-token" : `${localStorage.getItem('step-user-auth-token')}`}}).then(res=>{   
+        // console.log(res.data['all_tests'])    
+        setDataFunction(res.data['allQueries'])
+    }).catch(err=>{
+        console.log(err);
+    });
+}
