@@ -64,8 +64,7 @@ export default function CreateTest(){
         total_questions : '',
         start_time : '',
         end_time : '',
-        duration : '',
-        max_marks : '',
+        max_marks : ''
     });
     
     const [message,setMessage] = useState()
@@ -141,8 +140,12 @@ export default function CreateTest(){
             label="Start Time"
             name="start_time"
             value={state.start_time}
+            type='datetime-local'
             onChange={handleInputChange}
             autoFocus
+            InputLabelProps={{
+              shrink: true,
+            }}
           />
           <TextField
             variant="outlined"
@@ -153,20 +156,12 @@ export default function CreateTest(){
             label="End Time"
             name="end_time"
             value={state.end_time}
+            type='datetime-local'
             onChange={handleInputChange}
             autoFocus
-          />
-          <TextField
-            variant="outlined"
-            margin="normal"
-            required
-            fullWidth
-            id="duration"
-            label="Duration"
-            name="duration"
-            value={state.duration}
-            onChange={handleInputChange}
-            autoFocus
+            InputLabelProps={{
+              shrink: true,
+            }}
           />
           <TextField
             variant="outlined"

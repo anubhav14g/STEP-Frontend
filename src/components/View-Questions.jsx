@@ -41,7 +41,6 @@ export default function ViewQuestions(props){
         <Table className={classes.table} aria-label="simple table">
             <TableHead>
             <TableRow>
-                <TableCell align="center"><h2>Question Id</h2></TableCell>
                 <TableCell align="center"><h2>Question</h2></TableCell>
                 <TableCell align="center"><h2>option1</h2></TableCell>
                 <TableCell align="center"><h2>option2</h2></TableCell>
@@ -54,7 +53,6 @@ export default function ViewQuestions(props){
             <TableBody>
             {rowsData && rowsData.map((row) => (
                 <TableRow>
-                <TableCell align="center">{row._id}</TableCell>
                 <TableCell align="center">{row.question}</TableCell>
                 <TableCell align="center">{row.option1}</TableCell>
                 <TableCell align="center">{row.option2}</TableCell>

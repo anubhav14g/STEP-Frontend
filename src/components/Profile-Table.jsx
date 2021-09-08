@@ -52,7 +52,6 @@ export default function ProfileTable() {
             <TableCell align="center"><h2>Total Questions</h2></TableCell>
             <TableCell align="center"><h2>Start Time</h2></TableCell>
             <TableCell align="center"><h2>End Time</h2></TableCell>
-            <TableCell align="center"><h2>Duration</h2></TableCell>
             <TableCell align="center"><h2>Max Marks</h2></TableCell>
             <TableCell align="center"><h2>Created At</h2></TableCell>
             <TableCell></TableCell>
@@ -69,7 +68,6 @@ export default function ProfileTable() {
               <TableCell align="center">{row.total_questions}</TableCell>
               <TableCell align="center">{row.start_time}</TableCell>
               <TableCell align="center">{row.end_time}</TableCell>
-              <TableCell align="center">{row.duration}</TableCell>
               <TableCell align="center">{row.max_marks}</TableCell>
               <TableCell align="center">{row.createdAt}</TableCell>
               <TableCell align="center"><Link to={`/viewquestions/${row._id}`} style={{ textDecoration: 'none'}}><Button variant="contained" color="secondary" style={{marginTop:"10px",marginLeft:10,width: "370px",

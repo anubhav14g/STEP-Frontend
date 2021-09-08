@@ -41,14 +41,20 @@ export default function ViewSubmissions(props){
         <Table className={classes.table} aria-label="simple table">
             <TableHead>
             <TableRow>
-                <TableCell align="center"><h2>User Id</h2></TableCell>
+                <TableCell align="center"><h2>Name</h2></TableCell>
+                <TableCell align="center"><h2>Email</h2></TableCell>
+                <TableCell align="center"><h2>Type</h2></TableCell>
+                <TableCell align="center"><h2>Submitted At</h2></TableCell>
                 <TableCell align="center"><h2>Total Score</h2></TableCell>
             </TableRow>
             </TableHead>
             <TableBody>
             {rowsData && rowsData.map((row) => (
                 <TableRow>
-                <TableCell align="center">{row.user_id}</TableCell>
+                <TableCell align="center">{row.name_of_user}</TableCell>
+                <TableCell align="center">{row.user_email}</TableCell>
+                <TableCell align="center">{row.user_type}</TableCell>
+                <TableCell align="center">{row.submitted_at}</TableCell>
                 <TableCell align="center">{row.total_score}</TableCell>
                 </TableRow>
             ))}
