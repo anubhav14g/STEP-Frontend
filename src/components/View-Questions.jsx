@@ -35,9 +35,10 @@ export default function ViewQuestions(props){
     return (
         <div>
             <Navbar/>
-            <Button onClick={callGetAPI} variant="contained" color="secondary" style={{marginTop:"70px",marginLeft:10,width: "270px",
+            <Button onClick={callGetAPI} variant="contained" color="secondary" style={{marginTop:"20px",marginLeft:10,width: "270px",
             height: "50px",color: '#FFFFFF',fontSize:'19px'}}><b>View Questions</b></Button>
-            <TableContainer component={Paper} style={{marginTop: "30px",border: "solid 1px black"}}>
+            {rowsData && rowsData.map((row) => (
+            <TableContainer component={Paper} style={{marginTop: "60px",border: "solid 1px black"}}>
         <Table className={classes.table} aria-label="simple table">
             <TableHead>
             <TableRow>
@@ -51,7 +52,6 @@ export default function ViewQuestions(props){
             </TableRow>
             </TableHead>
             <TableBody>
-            {rowsData && rowsData.map((row) => (
                 <TableRow>
                 <TableCell align="center">{row.question}</TableCell>
                 <TableCell align="center">{row.option1}</TableCell>
@@ -61,10 +61,10 @@ export default function ViewQuestions(props){
                 <TableCell align="center">{row.solution}</TableCell>
                 <TableCell align="center">{row.createdAt}</TableCell>
                 </TableRow>
-            ))}
             </TableBody>
         </Table>
         </TableContainer>
+        ))}
         </div>
     )
 }

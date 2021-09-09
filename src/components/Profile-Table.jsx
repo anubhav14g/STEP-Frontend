@@ -40,9 +40,10 @@ export default function ProfileTable() {
 
   return (
     <div>
-        <Button onClick={callGetAPI} variant="contained" color="secondary" style={{marginTop:"70px",marginLeft:10,width: "170px",
+        <Button onClick={callGetAPI} variant="contained" color="secondary" style={{marginTop:"-70px",marginLeft:10,width: "170px",
         height: "50px",color: '#FFFFFF',fontSize:'19px'}}><b>Show Data</b></Button>
-        <TableContainer component={Paper} style={{marginTop: "30px"}}>
+        {rowsData && rowsData.map((row) => (
+        <TableContainer component={Paper} style={{marginTop: "80px"}}>
       <Table className={classes.table} aria-label="simple table">
         <TableHead>
           <TableRow>
@@ -60,7 +61,6 @@ export default function ProfileTable() {
           </TableRow>
         </TableHead>
         <TableBody>
-          {rowsData && rowsData.map((row) => (
             <TableRow>
               <TableCell align="center">{row._id}</TableCell>
               <TableCell align="center">{row.name}</TableCell>
@@ -77,10 +77,10 @@ export default function ProfileTable() {
               <TableCell align="center"><Link to={`/viewsubmissions/${row._id}`} style={{ textDecoration: 'none'}}><Button variant="contained" color="secondary" style={{marginTop:"10px",marginLeft:10,width: "370px",
             height: "40px",color: '#FFFFFF',fontSize:'19px'}}><b>View All Submissions</b></Button></Link></TableCell>
             </TableRow>
-          ))}
         </TableBody>
       </Table>
     </TableContainer>
+    ))}
     </div>
   );
 }

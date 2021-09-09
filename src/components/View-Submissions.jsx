@@ -35,9 +35,10 @@ export default function ViewSubmissions(props){
     return (
         <div>
             <Navbar/>
-            <Button onClick={callGetAPI} variant="contained" color="secondary" style={{marginTop:"70px",marginLeft:10,width: "270px",
+            <Button onClick={callGetAPI} variant="contained" color="secondary" style={{marginTop:"20px",marginLeft:10,width: "270px",
             height: "50px",color: '#FFFFFF',fontSize:'19px'}}><b>View Submissions</b></Button>
-            <TableContainer component={Paper} style={{marginTop: "30px",border: "solid 1px black"}}>
+            {rowsData && rowsData.map((row) => (
+            <TableContainer component={Paper} style={{marginTop: "50px",border: "solid 1px black"}}>
         <Table className={classes.table} aria-label="simple table">
             <TableHead>
             <TableRow>
@@ -49,7 +50,6 @@ export default function ViewSubmissions(props){
             </TableRow>
             </TableHead>
             <TableBody>
-            {rowsData && rowsData.map((row) => (
                 <TableRow>
                 <TableCell align="center">{row.name_of_user}</TableCell>
                 <TableCell align="center">{row.user_email}</TableCell>
@@ -57,10 +57,10 @@ export default function ViewSubmissions(props){
                 <TableCell align="center">{row.submitted_at}</TableCell>
                 <TableCell align="center">{row.total_score}</TableCell>
                 </TableRow>
-            ))}
             </TableBody>
         </Table>
         </TableContainer>
+        ))}
         </div>
     )
 }

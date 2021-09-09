@@ -139,6 +139,7 @@ export default function TakeTest(){
                 Take
                 </Button>
             </form>
+            {rowsData && rowsData.map((row) => (
             <div style={{marginTop:"100px"}}>
             <TableContainer component={Paper} style={{marginTop: "30px",border: "solid 1px black"}}>
             <Table className={classes.table} aria-label="simple table">
@@ -154,7 +155,6 @@ export default function TakeTest(){
             </TableRow>
             </TableHead>
             <TableBody>
-            {rowsData && rowsData.map((row) => (
                 <TableRow>
                 <TableCell align="center">{row.question}</TableCell>
                 <TableCell align="center">{row.option1}</TableCell>
@@ -191,13 +191,13 @@ export default function TakeTest(){
                     </form>
                 </TableCell>
                 </TableRow>
-            ))}
             </TableBody>
             </Table>
             </TableContainer>
-            </div>
             <Button onClick={handleSubmitTheTest} variant="contained" color="secondary" style={{marginTop:"10px",marginLeft:"20px",width: "300px",
   height: "40px",color: '#FFFFFF',fontSize:'19px'}}><b>Submit the Test</b></Button>
+            </div>
+            ))}
         </div>
     )
 }
