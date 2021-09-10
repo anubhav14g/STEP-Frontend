@@ -16,6 +16,9 @@ import Paper from '@material-ui/core/Paper';
 import * as allApis from "./api";
 import Button from '@material-ui/core/Button';
 import {Link} from "react-router-dom";
+import ThumbUpAltIcon from '@material-ui/icons/ThumbUpAlt';
+import ThumbDownIcon from '@material-ui/icons/ThumbDown';
+import axios from 'axios';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -51,12 +54,22 @@ export default function ViewAllQueries(){
         {allApis.callAPI6(setData)}
     }
 
+    const [message,setMessage] = useState()
+
+    const [isOpened,setIsOpened] = useState(false)
+
     return(
     <div>
         <Navbar/>
-        <Button onClick={callGetAPI} variant="contained" color="secondary" style={{marginTop:"20px",marginLeft:10,width: "270px",
+        <Button onClick={callGetAPI} variant="contained" color="secondary" style={{marginTop:"10px",marginLeft:'10px',width: "270px",
             height: "50px",color: '#FFFFFF',fontSize:'19px'}}><b>View Queries</b></Button>
-        <TableContainer component={Paper} style={{marginTop: "60px"}}>
+        <Link to="/postquery" style={{ textDecoration: 'none' }}><Button onClick={callGetAPI} variant="contained" color="secondary" style={{marginTop:"10px",marginLeft:'20px',width: "270px",
+            height: "50px",color: '#FFFFFF',fontSize:'19px'}}><b>Post Query</b></Button></Link>
+        <div>
+        {isOpened && <Button variant="contained" color="secondary" style={{marginTop:"10px",marginLeft:'300px',width: "570px",
+  height: "100px",color: '#FFFFFF',fontSize:'19px'}}><b>{message}</b></Button>}
+        </div>
+        <TableContainer component={Paper} style={{marginTop: "40px"}}>
         <Table className={classes.table} aria-label="simple table">
             <TableHead>
             <TableRow>
@@ -71,11 +84,43 @@ export default function ViewAllQueries(){
                         <Typography className={classes.heading} style={{fontSize: "20px", color: 'red'}}><b>Query related to Test ID</b></Typography>
                         <Typography className={classes.secondaryHeading} style={{fontSize: "20px"}}>{row.test_id}</Typography>
                         </AccordionSummary>
+                        {row.array && row.array.map((row2) => (
                         <AccordionDetails>
-                        <Typography>
-                            {row.query}
+                        <Typography style={{color: '#ff00fd',width: '200px'}}>
+                            <b>{row2.email}</b>     
+                        </Typography>
+                        <Typography style={{paddingLeft: '30px',width: '700px',color: '#2196f3'}}>
+                            <b>{row2.query}</b>  
+                        </Typography>
+                        <Typography style={{paddingLeft: '30px'}}>
+                            <button onClick={()=>{
+                                axios.get(`https://anubhavg-step.herokuapp.com/api/query/update/upvote/${row2.query_id}`,{ headers: {"auth-token" : `${localStorage.getItem('step-user-auth-token')}`}}).then(res=>{      
+                                    setMessage(res.data.message)
+                                    setIsOpened(true);
+                                }).catch(err=>{
+                                    console.log(err.response.data.message);
+                                    setMessage(err.response.data.message)
+                                    setIsOpened(true);
+                                });
+                            }}><ThumbUpAltIcon/>{row2.upvote.length}</button>  
+                        </Typography>
+                        <Typography style={{paddingLeft: '30px'}}>
+                            <button onClick={()=>{
+                                axios.get(`https://anubhavg-step.herokuapp.com/api/query/update/downvote/${row2.query_id}`,{ headers: {"auth-token" : `${localStorage.getItem('step-user-auth-token')}`}}).then(res=>{      
+                                            setMessage(res.data.message)
+                                            setIsOpened(true);
+                                        }).catch(err=>{
+                                            console.log(err.response.data.message);
+                                            setMessage(err.response.data.message)
+                                            setIsOpened(true);
+                                        });
+                            }}><ThumbDownIcon/>{row2.downvote.length}</button>
+                        </Typography>
+                        <Typography style={{paddingLeft: '40px',color: 'red'}}>
+                            <b>{row2.createdAt}</b>
                         </Typography>
                         </AccordionDetails>
+                        ))}
                     </Accordion>
                 </div>
             ))}

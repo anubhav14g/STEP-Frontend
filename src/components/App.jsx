@@ -8,6 +8,7 @@ import ViewQuestions from "./View-Questions.jsx";
 import ViewSubmissions from "./View-Submissions.jsx"
 import AddQuestion from "./Add-Question.jsx"
 import ViewAllQueries from "./View-All-Queries.jsx"
+import PostQuery from "./Post-Query.jsx"
 import {BrowserRouter as Router,Route,Switch} from "react-router-dom";
 
 function App(){
@@ -24,6 +25,7 @@ function App(){
                     <Route path="/viewsubmissions/:test_id" component={ViewSubmissions}/>
                     <Route path="/addquestion/:test_id" component={AddQuestion}/>
                     <Route path="/viewallqueries" component={ViewAllQueries}/>
+                    <Route path="/postquery" component={PostQuery}/>
                 </Switch>
             </div>
         </Router>
