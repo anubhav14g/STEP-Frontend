@@ -194,10 +194,10 @@ export default function TakeTest(){
             </TableBody>
             </Table>
             </TableContainer>
-            <Button onClick={handleSubmitTheTest} variant="contained" color="secondary" style={{marginTop:"10px",marginLeft:"20px",width: "300px",
-  height: "40px",color: '#FFFFFF',fontSize:'19px'}}><b>Submit the Test</b></Button>
             </div>
             ))}
+            {rowsData && <Button onClick={handleSubmitTheTest} variant="contained" color="secondary" style={{marginTop:"10px",marginLeft:"20px",width: "300px",
+  height: "40px",color: '#FFFFFF',fontSize:'19px'}}><b>Submit the Test</b></Button>}
         </div>
     )
 }

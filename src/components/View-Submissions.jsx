@@ -32,11 +32,31 @@ export default function ViewSubmissions(props){
         });
     }
 
+    function callGetDownloadAPI(){
+        axios(`https://anubhavg-step.herokuapp.com/api/test/create/pdf/submissions/test/${test_id}`,{
+            method: "GET",
+            responseType: "blob"
+            //Force to receive data in a Blob Format
+          },{ headers: {"auth-token" : `${localStorage.getItem('step-user-auth-token')}`}}).then(response=>{       
+            const file = new Blob([response.data], {
+                type: "application/pdf"
+              });
+              //Build a URL from the file
+              const fileURL = URL.createObjectURL(file);
+              //Open the URL on new Window
+              window.open(fileURL);
+        }).catch(err=>{
+            console.log(err);
+        });
+    }
+
     return (
         <div>
             <Navbar/>
             <Button onClick={callGetAPI} variant="contained" color="secondary" style={{marginTop:"20px",marginLeft:10,width: "270px",
             height: "50px",color: '#FFFFFF',fontSize:'19px'}}><b>View Submissions</b></Button>
+            <Button onClick={callGetDownloadAPI} variant="contained" color="secondary" style={{marginTop:"20px",marginLeft:10,width: "270px",
+            height: "50px",color: '#FFFFFF',fontSize:'19px'}}><b>Download Pdf</b></Button>
             {rowsData && rowsData.map((row) => (
             <TableContainer component={Paper} style={{marginTop: "50px",border: "solid 1px black"}}>
         <Table className={classes.table} aria-label="simple table">
