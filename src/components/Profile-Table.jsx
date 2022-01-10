@@ -40,10 +40,10 @@ export default function ProfileTable() {
 
   return (
     <div>
-        <Button onClick={callGetAPI} variant="contained" color="secondary" style={{marginTop:"-70px",marginLeft:10,width: "170px",
+        <Button onClick={callGetAPI} variant="contained" color="secondary" style={{marginTop:"-230px",marginLeft:10,width: "170px",
         height: "50px",color: '#FFFFFF',fontSize:'19px'}}><b>Show Data</b></Button>
         {rowsData && rowsData.map((row) => (
-        <TableContainer component={Paper} style={{marginTop: "80px"}}>
+        <TableContainer component={Paper} style={{marginTop: "20px"}}>
       <Table className={classes.table} aria-label="simple table">
         <TableHead>
           <TableRow>

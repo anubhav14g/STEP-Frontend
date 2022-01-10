@@ -65,6 +65,7 @@ export default function ViewAllQueries(){
             height: "50px",color: '#FFFFFF',fontSize:'19px'}}><b>View Queries</b></Button>
         <Link to="/postquery" style={{ textDecoration: 'none' }}><Button onClick={callGetAPI} variant="contained" color="secondary" style={{marginTop:"10px",marginLeft:'20px',width: "270px",
             height: "50px",color: '#FFFFFF',fontSize:'19px'}}><b>Post Query</b></Button></Link>
+        <h1 style={{color: 'white'}} className="blink_me">Click on View Queries to display data or to view changes</h1>
         <div>
         {isOpened && <Button variant="contained" color="secondary" style={{marginTop:"10px",marginLeft:'300px',width: "570px",
   height: "100px",color: '#FFFFFF',fontSize:'19px'}}><b>{message}</b></Button>}
