@@ -1,13 +1,13 @@
 import axios from 'axios';
 
 export function callAPI1(changeFunction){
-    axios.get('https://anubhavg-step.herokuapp.com/').then(res=>{   
+    axios.get('https://anubhavg-step.onrender.com/').then(res=>{   
         changeFunction(res.data.message)
     });
 }
 
 export function callAPI2(bodyObj,setMessageFunction,setIsOpenedFunction){
-    axios.post('https://anubhavg-step.herokuapp.com/api/auth/register/user',bodyObj).then(res=>{   
+    axios.post('https://anubhavg-step.onrender.com/api/auth/register/user',bodyObj).then(res=>{   
         setMessageFunction(res.data.message)
         setIsOpenedFunction(true)
         localStorage.removeItem('step-user-auth-token');
@@ -21,7 +21,7 @@ export function callAPI2(bodyObj,setMessageFunction,setIsOpenedFunction){
 }
 
 export function callAPI3(bodyObj,setMessageFunction,setIsOpenedFunction,setErrorMessageFunction){
-    axios.post('https://anubhavg-step.herokuapp.com/api/auth/login/user',bodyObj).then(res=>{   
+    axios.post('https://anubhavg-step.onrender.com/api/auth/login/user',bodyObj).then(res=>{   
         setMessageFunction(res.data.message)
         setIsOpenedFunction(true)
         setErrorMessageFunction(false)
@@ -39,7 +39,7 @@ export function callAPI3(bodyObj,setMessageFunction,setIsOpenedFunction,setError
 }
 
 export function callAPI4(setDataFunction){
-    axios.get('https://anubhavg-step.herokuapp.com/api/test/view/all/tests',{ headers: {"auth-token" : `${localStorage.getItem('step-user-auth-token')}`}}).then(res=>{   
+    axios.get('https://anubhavg-step.onrender.com/api/test/view/all/tests',{ headers: {"auth-token" : `${localStorage.getItem('step-user-auth-token')}`}}).then(res=>{   
         // console.log(res.data['all_tests'])    
         setDataFunction(res.data['all_tests'])
     }).catch(err=>{
@@ -49,7 +49,7 @@ export function callAPI4(setDataFunction){
 
 
 export function callAPI5(bodyObj,setMessageFunction,setIsOpenedFunction,setErrorMessageFunction){
-    axios.post('https://anubhavg-step.herokuapp.com/api/test/create',bodyObj,{ headers: {"auth-token" : `${localStorage.getItem('step-user-auth-token')}`}}).then(res=>{   
+    axios.post('https://anubhavg-step.onrender.com/api/test/create',bodyObj,{ headers: {"auth-token" : `${localStorage.getItem('step-user-auth-token')}`}}).then(res=>{   
         setMessageFunction(res.data.message)
         setIsOpenedFunction(true)
         setErrorMessageFunction(false)
@@ -62,7 +62,7 @@ export function callAPI5(bodyObj,setMessageFunction,setIsOpenedFunction,setError
 }
 
 export function callAPI6(setDataFunction){
-    axios.get('https://anubhavg-step.herokuapp.com/api/query/view/all/queries',{ headers: {"auth-token" : `${localStorage.getItem('step-user-auth-token')}`}}).then(res=>{   
+    axios.get('https://anubhavg-step.onrender.com/api/query/view/all/queries',{ headers: {"auth-token" : `${localStorage.getItem('step-user-auth-token')}`}}).then(res=>{   
         // console.log(res.data['all_tests'])    
         setDataFunction(res.data['allQueries'])
     }).catch(err=>{

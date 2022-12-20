@@ -24,7 +24,7 @@ export default function ViewSubmissions(props){
     const [rowsData, setData]= useState();
     
     function callGetAPI(){
-        axios.get(`https://anubhavg-step.herokuapp.com/api/test/view/all/submissions/${test_id}`,{ headers: {"auth-token" : `${localStorage.getItem('step-user-auth-token')}`}}).then(res=>{   
+        axios.get(`https://anubhavg-step.onrender.com/api/test/view/all/submissions/${test_id}`,{ headers: {"auth-token" : `${localStorage.getItem('step-user-auth-token')}`}}).then(res=>{   
         // console.log(res.data['all_tests'])    
             setData(res.data['allSubmissions'])
         }).catch(err=>{
@@ -33,7 +33,7 @@ export default function ViewSubmissions(props){
     }
 
     function callGetDownloadAPI(){
-        axios(`https://anubhavg-step.herokuapp.com/api/test/create/pdf/submissions/test/${test_id}`,{
+        axios(`https://anubhavg-step.onrender.com/api/test/create/pdf/submissions/test/${test_id}`,{
             method: "GET",
             responseType: "blob"
             //Force to receive data in a Blob Format

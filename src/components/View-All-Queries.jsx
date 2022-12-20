@@ -95,7 +95,7 @@ export default function ViewAllQueries(){
                         </Typography>
                         <Typography style={{paddingLeft: '30px'}}>
                             <button onClick={()=>{
-                                axios.get(`https://anubhavg-step.herokuapp.com/api/query/update/upvote/${row2.query_id}`,{ headers: {"auth-token" : `${localStorage.getItem('step-user-auth-token')}`}}).then(res=>{      
+                                axios.get(`https://anubhavg-step.onrender.com/api/query/update/upvote/${row2.query_id}`,{ headers: {"auth-token" : `${localStorage.getItem('step-user-auth-token')}`}}).then(res=>{      
                                     setMessage(res.data.message)
                                     setIsOpened(true);
                                 }).catch(err=>{
@@ -107,7 +107,7 @@ export default function ViewAllQueries(){
                         </Typography>
                         <Typography style={{paddingLeft: '30px'}}>
                             <button onClick={()=>{
-                                axios.get(`https://anubhavg-step.herokuapp.com/api/query/update/downvote/${row2.query_id}`,{ headers: {"auth-token" : `${localStorage.getItem('step-user-auth-token')}`}}).then(res=>{      
+                                axios.get(`https://anubhavg-step.onrender.com/api/query/update/downvote/${row2.query_id}`,{ headers: {"auth-token" : `${localStorage.getItem('step-user-auth-token')}`}}).then(res=>{      
                                             setMessage(res.data.message)
                                             setIsOpened(true);
                                         }).catch(err=>{

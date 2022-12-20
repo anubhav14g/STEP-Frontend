@@ -80,7 +80,7 @@ export default function AddQuestion(props){
     const handleSubmit = (event) => {
         event.preventDefault();
         console.log(state);
-        axios.post(`https://anubhavg-step.herokuapp.com/api/test/add/question/${test_id}`,state,{ headers: {"auth-token" : `${localStorage.getItem('step-user-auth-token')}`}}).then(res=>{   
+        axios.post(`https://anubhavg-step.onrender.com/api/test/add/question/${test_id}`,state,{ headers: {"auth-token" : `${localStorage.getItem('step-user-auth-token')}`}}).then(res=>{   
             setMessage(res.data.message)
             setIsOpened(true)
             setErrorMessage(false)

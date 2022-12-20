@@ -43,9 +43,9 @@ export default function TakeTest(){
     const handleSubmit = (event) => {
         event.preventDefault();
         // console.log(state.test_id);
-        axios.get(`https://anubhavg-step.herokuapp.com/api/test/check/status/${state.test_id}`,{ headers: {"auth-token" : `${localStorage.getItem('step-user-auth-token')}`}}).then(res=>{   
+        axios.get(`https://anubhavg-step.onrender.com/api/test/check/status/${state.test_id}`,{ headers: {"auth-token" : `${localStorage.getItem('step-user-auth-token')}`}}).then(res=>{   
         // console.log(res.data['all_tests'])    
-            axios.get(`https://anubhavg-step.herokuapp.com/api/test/view/all/questions/${state.test_id}`,{ headers: {"auth-token" : `${localStorage.getItem('step-user-auth-token')}`}}).then(res=>{   
+            axios.get(`https://anubhavg-step.onrender.com/api/test/view/all/questions/${state.test_id}`,{ headers: {"auth-token" : `${localStorage.getItem('step-user-auth-token')}`}}).then(res=>{   
             // console.log(res.data['all_tests'])    
                 setData(res.data['allQuestions'])
                 setIsOpened(false);
@@ -76,9 +76,9 @@ export default function TakeTest(){
 
     const handleSaveSubmit = (event) => {
         event.preventDefault();
-        axios.get(`https://anubhavg-step.herokuapp.com/api/test/check/status/${state.test_id}`,{ headers: {"auth-token" : `${localStorage.getItem('step-user-auth-token')}`}}).then(res=>{   
+        axios.get(`https://anubhavg-step.onrender.com/api/test/check/status/${state.test_id}`,{ headers: {"auth-token" : `${localStorage.getItem('step-user-auth-token')}`}}).then(res=>{   
         // console.log(res.data['all_tests'])    
-            axios.post(`https://anubhavg-step.herokuapp.com/api/submit/save/answer/${currQuesId}`,{'submitted_answer': state2.submitted_answer},{ headers: {"auth-token" : `${localStorage.getItem('step-user-auth-token')}`}}).then(res=>{   
+            axios.post(`https://anubhavg-step.onrender.com/api/submit/save/answer/${currQuesId}`,{'submitted_answer': state2.submitted_answer},{ headers: {"auth-token" : `${localStorage.getItem('step-user-auth-token')}`}}).then(res=>{   
             // console.log(res.data['all_tests'])    
                 setIsOpened(true);
                 setMessage(res.data.message)
@@ -96,9 +96,9 @@ export default function TakeTest(){
 
     function handleSubmitTheTest(){
         // console.log(state.test_id);
-        axios.get(`https://anubhavg-step.herokuapp.com/api/test/check/status/${state.test_id}`,{ headers: {"auth-token" : `${localStorage.getItem('step-user-auth-token')}`}}).then(res=>{   
+        axios.get(`https://anubhavg-step.onrender.com/api/test/check/status/${state.test_id}`,{ headers: {"auth-token" : `${localStorage.getItem('step-user-auth-token')}`}}).then(res=>{   
         // console.log(res.data['all_tests'])    
-            axios.get(`https://anubhavg-step.herokuapp.com/api/submit/test/submit/${state.test_id}`,{ headers: {"auth-token" : `${localStorage.getItem('step-user-auth-token')}`}}).then(res=>{   
+            axios.get(`https://anubhavg-step.onrender.com/api/submit/test/submit/${state.test_id}`,{ headers: {"auth-token" : `${localStorage.getItem('step-user-auth-token')}`}}).then(res=>{   
                 setMessage(res.data.message)   
                 setIsOpened(true);
             }).catch(err=>{

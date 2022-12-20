@@ -80,7 +80,7 @@ export default function PostQuery(){
         const bodyObj={
             'query': state.query
         }
-        axios.post(`https://anubhavg-step.herokuapp.com/api/query/create/${state.test_id}`,bodyObj,{ headers: {"auth-token" : `${localStorage.getItem('step-user-auth-token')}`}}).then(res=>{   
+        axios.post(`https://anubhavg-step.onrender.com/api/query/create/${state.test_id}`,bodyObj,{ headers: {"auth-token" : `${localStorage.getItem('step-user-auth-token')}`}}).then(res=>{   
             setMessage(res.data.message)
             setIsOpened(true)
             setErrorMessage(false)
